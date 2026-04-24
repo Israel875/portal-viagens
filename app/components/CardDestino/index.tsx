@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from "next/image";
 import { Destino } from "@/app/types/destino";
 import styles from "./CardDestino.module.css";
@@ -8,6 +9,7 @@ type Props = {
 
 export default function CardDestino({ destino }: Props) {
   return (
+  <Link href={`/destinos/${destino.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
     <div className={styles.card}>
       <Image
         src={destino.imagem}
@@ -21,5 +23,6 @@ export default function CardDestino({ destino }: Props) {
         <p>{destino.descricao}</p>
       </div>
     </div>
-  );
+  </Link>
+)
 }
