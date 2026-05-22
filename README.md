@@ -8,3 +8,24 @@ A aplicação conta com duas páginas: a página inicial com apresentação do p
 
 Os conceitos praticados incluem roteamento baseado em arquivos com App Router, tipagem de dados com TypeScript, estilização com CSS Modules, navegação entre páginas com next/link e organização de dados mockados separados da lógica de renderização.
 Para rodar o projeto localmente, clone o repositório, instale as dependências com npm install e rode npm run dev. Acesse http://localhost:3000 no navegador.
+
+# Portal Viagens
+
+Aplicação de portal de viagens desenvolvida com Next.js e TypeScript.
+
+## 🚀 Deploy
+
+[Acesse o projeto aqui](https://portal-viagens-black.vercel.app)
+
+## 🛠️ Tecnologias
+
+- Next.js 16
+- React 19
+- TypeScript
+
+## ⚙️ CI/CD
+
+Pipeline configurada com GitHub Actions:
+- Lint automático a cada push
+- Build de verificação
+- Deploy automático na Vercel

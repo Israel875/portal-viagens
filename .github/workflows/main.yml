@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Lint e Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Rodar Lint
+        run: npm run lint
+
+      - name: Rodar Build
+        run: npm run build
+
+  deploy:
+    name: Deploy na Vercel
+    needs: ci
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Deploy via Vercel CLI
+        run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes
