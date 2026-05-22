@@ -42,3 +42,13 @@ jobs:
 
       - name: Deploy via Vercel CLI
         run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes
+
+        - name: Rodar Lint
+        run: npm run lint
+
+      - name: Rodar Testes
+        run: npm run test
+
+      - name: Rodar Build
+        run: npm run build
+        
